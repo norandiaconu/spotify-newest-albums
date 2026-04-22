@@ -1,0 +1,13 @@
+{
+    "name": "spotify-newest-albums",
+    "displayName": "spotify-newest-albums",
+    "version": "1.0.0",
+    "bin": {
+        "s": "start.ps1"
+    },
+    "scripts": {
+        "start": "py run.py",
+        "postinstall": "py -m pip install -r requirements.txt --q",
+        "list": "py -m pip list"
+    }
+}
