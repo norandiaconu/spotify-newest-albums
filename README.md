@@ -1,4 +1,4 @@
-# newify
+# spotify-newest-albums
 
 ## Installation
 
@@ -7,6 +7,7 @@
 ## Usage
 
 `s`: sort all albums by followed artists on Spotify
+`s d`: delete config
 
 ## Credits
 
