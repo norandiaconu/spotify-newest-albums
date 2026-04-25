@@ -20,17 +20,7 @@ def main():
         run(client_id, client_secret, skips)
     except ModuleNotFoundError:
         spinner.stop()
-        print('No config found, please enter the following')
-        f = open('config.py', 'w')
-        client_id = input('Client ID: ')
-        f.write("client_id = '" + client_id + "'\n")
-        client_secret = input('Client secret: ')
-        f.write("client_secret = '" + client_secret + "'\n")
-        skips = input('Skips: ')
-        f.write("skips = [" + skips + "]")
-        f.close()
-        print('Config saved, starting...')
-        main()
+        print('ERROR')
     except KeyboardInterrupt:
         sortAlbums()
         print('EXIT')
@@ -40,7 +30,7 @@ def run(client_id, client_secret, skips):
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
         client_id=client_id,
         client_secret=client_secret,
-        redirect_uri='https://localhost:8080',
+        redirect_uri='http://127.0.0.1:8080',
         scope='user-library-read, user-follow-read'))
     currentLimit = 0
 
