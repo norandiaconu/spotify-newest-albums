@@ -1,7 +1,7 @@
 {
     "name": "spotify-newest-albums",
     "displayName": "spotify-newest-albums",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "bin": {
         "s": "start.ps1"
     },
