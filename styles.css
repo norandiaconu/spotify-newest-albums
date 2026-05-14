@@ -1,11 +1,16 @@
-.r {
-    color: red;
-}
+div {
+    display: grid;
+    grid-template-columns: 100px 200px 700px;
 
-.g {
-    color: green;
-}
+    :nth-child(1) {
+        color: red;
+    }
 
-.y {
-    color: yellow;
+    :nth-child(2) {
+        color: green;
+    }
+
+    :nth-child(3) {
+        color: yellow;
+    }
 }

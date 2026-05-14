@@ -3,6 +3,10 @@ if ($args[0] -eq 'd') {
     Remove-Item $filePath
     Write-Host "Config Deleted"
 }
+if ($args[0] -eq 'o') {
+    Invoke-Item "index.html"
+    exit 0
+}
 if(-Not(Test-Path -Path $filePath)) {
     Write-Host "Creating new config"
     New-Item -Name "config.py" -Path $PSScriptRoot -ItemType File | Out-Null

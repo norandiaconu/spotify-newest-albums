@@ -8,6 +8,7 @@
 
 `s`: sort all albums by followed artists on Spotify
 `s d`: delete config
+`s o`: open output file
 
 ## Credits
 
