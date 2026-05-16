@@ -4,7 +4,13 @@ if ($args[0] -eq 'd') {
     Write-Host "Config Deleted"
 }
 if ($args[0] -eq 'o') {
-    Invoke-Item "index.html"
+    if (Test-Path -Path "$PSScriptRoot\complete.html") {
+        Invoke-Item "$PSScriptRoot\complete.html"
+    } elseif (Test-Path -Path "$PSScriptRoot\partial.html") {
+        Invoke-Item "$PSScriptRoot\partial.html"
+    } else {
+        Write-Host "No output file"
+    }
     exit 0
 }
 if(-Not(Test-Path -Path $filePath)) {

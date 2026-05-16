@@ -24,7 +24,7 @@ def main():
         spinner.stop()
         print('ERROR')
     except KeyboardInterrupt:
-        sortAlbums()
+        sortAlbums(False)
         print('EXIT')
 
 def run(client_id, client_secret, skips):
@@ -46,7 +46,7 @@ def run(client_id, client_secret, skips):
         time.sleep(0.6)
         artists = sp.current_user_followed_artists(limit=50, after=nextId)['artists']
         getAlbums(total, skips, sp, artists)
-    sortAlbums()
+    sortAlbums(True)
 
 def getAlbums(total, skips, sp, artists):
     global index, nextId
@@ -66,10 +66,12 @@ def getAlbums(total, skips, sp, artists):
                 )
                 htmlArray.append('<span>' + album['release_date'] + '</span><span>' + artistName + '</span><span>' + album['name'] + '</span>')
 
-def sortAlbums():
+def sortAlbums(complete):
     spinner.text = 'Sorting...'
-    htmlArray.sort()
-    f = open('index.html', 'w', encoding='utf-8')
+    import os
+    htmlArray.sort(reverse=True)
+    file = "complete" if complete else "partial"
+    f = open(os.path.dirname(os.path.abspath(__file__)) + '/' + file + '.html', 'w', encoding='utf-8')
     f.write('<html>\n<link rel="stylesheet" href="styles.css">')
     for htmlItem in htmlArray:
         f.write('\n<div>' + htmlItem + '</div>')
